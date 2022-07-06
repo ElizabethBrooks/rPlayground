@@ -1,4 +1,9 @@
 #### Colorful R Plots with Wes Anderson Palettes & ggplot2 - Pirate Ship Features
+# data.world/funsizemaddy/pirate2/workspace/file?filename=Pirates+%281%29.xlsx
+
+# set the working directory
+#setwd("/Users/bamflappy/Documents/rPlayground")
+
 # import the pirate ship data from the PiratesShip.csv file
 ships <- read.csv("PiratesShip.csv")
 
