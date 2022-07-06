@@ -11,7 +11,7 @@
 library(ggplot2)
 
 # import the pirate data from the PiratesPirate.csv file
-pirates <- read.csv("PiratesPirate.csv")
+pirates <- read.csv("data/PiratesPirate.csv")
 
 # view the column names of the pirates data
 colnames(pirates)
@@ -29,13 +29,13 @@ head(pirates)
 ggplot(data = pirates, aes(x = Limbs)) +
   geom_bar()
 
-ggsave("pirates_plot_limbs_bar.png", plot = last_plot())
+ggsave("plots/pirates_plot_limbs_bar.png", plot = last_plot())
 
 # next, plot only the Teeth dimension of the pirates data
 ggplot(data = pirates, aes(x = Teeth)) +
   geom_bar()
 
-ggsave("pirates_plot_teeth_bar.png", plot = last_plot())
+ggsave("plots/pirates_plot_teeth_bar.png", plot = last_plot())
 
 ### Two Dimensions - Teeth & Limbs
 
@@ -43,13 +43,13 @@ ggsave("pirates_plot_teeth_bar.png", plot = last_plot())
 ggplot(data = pirates, aes(x = Limbs, y = Teeth)) +
   geom_point()
 
-ggsave("pirates_plot_teeth_limbs_scatter.png", plot = last_plot())
+ggsave("plots/pirates_plot_teeth_limbs_scatter.png", plot = last_plot())
 
 # modify the scatter plot to include the count of pirates at each point
 ggplot(data = pirates, aes(x = Limbs, y = Teeth)) +
   geom_count()
 
-ggsave("pirates_plot_teeth_limbs_scatterCount.png", plot = last_plot())
+ggsave("plots/pirates_plot_teeth_limbs_scatterCount.png", plot = last_plot())
 
 # check the data for the one outlier pirate with 2.5 Limbs
 pirates[pirates$Limbs == "2.5", ]
@@ -58,7 +58,7 @@ pirates[pirates$Limbs == "2.5", ]
 ggplot(data = pirates, aes(x = Limbs, y = Teeth)) +
   geom_boxplot()
 
-ggsave("pirates_plot_teeth_limbs_boxWarning.png", plot = last_plot())
+ggsave("plots/pirates_plot_teeth_limbs_boxWarning.png", plot = last_plot())
 
 # check the info for the factor function
 ?factor
@@ -67,7 +67,7 @@ ggsave("pirates_plot_teeth_limbs_boxWarning.png", plot = last_plot())
 ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
   geom_boxplot()
 
-ggsave("pirates_plot_teeth_limbs_boxFixed.png", plot = last_plot())
+ggsave("plots/pirates_plot_teeth_limbs_boxFixed.png", plot = last_plot())
 
 # create a more detailed plot using colors to add another dimension
 # look up color options on the internet by searching "ggplot boxplot color"
@@ -75,14 +75,14 @@ ggsave("pirates_plot_teeth_limbs_boxFixed.png", plot = last_plot())
 ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
   geom_boxplot(color="red", fill="orange", alpha=0.2)
 
-ggsave("pirates_plot_teeth_limbs_colorBox1.png", plot = last_plot())
+ggsave("plots/pirates_plot_teeth_limbs_colorBox1.png", plot = last_plot())
 
 # example 2 from r-graph-gallery.com/264-control-ggplot2-boxplot-colors.html
 ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth, fill = Origin)) +
   geom_boxplot(alpha=0.3) +
   theme(legend.position="none")
 
-ggsave("pirates_plot_teeth_limbs_origin_colorBox2.png", plot = last_plot())
+ggsave("plots/pirates_plot_teeth_limbs_origin_colorBox2.png", plot = last_plot())
 
 ### Three Dimensions - Teeth & Limbs & Origin
 
@@ -93,7 +93,7 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
   geom_boxplot(color="darkgreen", fill="orange", alpha=0.2) +
   facet_wrap(~ Origin)
 
-ggsave("pirates_plot_teeth_limbs_origin_facetWrap.png", plot = last_plot())
+ggsave("plots/pirates_plot_teeth_limbs_origin_facetWrap.png", plot = last_plot())
 
 # change the appearance of the individual plot titles
 # www.sthda.com/english/wiki/ggplot2-facet-split-a-plot-into-a-matrix-of-panels
@@ -103,7 +103,7 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
   theme(strip.background = element_rect(colour="black", fill="white", 
                                         size=1.5, linetype="solid"))
 
-ggsave("pirates_plot_teeth_limbs_origin_indTitles.png", plot = last_plot())
+ggsave("plots/pirates_plot_teeth_limbs_origin_indTitles.png", plot = last_plot())
 
 # change the axis titles and add a plot title
 # look up how to add titles on the internet by searching "ggplot title"
@@ -117,7 +117,7 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
        x ="Number of Limbs", 
        y = "Number of Teeth")
 
-ggsave("pirates_plot_teeth_limbs_origin_withTitles.png", plot = last_plot())
+ggsave("plots/pirates_plot_teeth_limbs_origin_withTitles.png", plot = last_plot())
 
 # adjust the colors of the axis and plot titles
 # www.sthda.com/english/wiki/ggplot2-title-main-axis-and-legend-titles
@@ -135,7 +135,7 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
     axis.title.y = element_text(color="purple", size=14, face="bold")
   )
 
-ggsave("pirates_plot_teeth_limbs_origin_colorTitles.png", plot = last_plot())
+ggsave("plots/pirates_plot_teeth_limbs_origin_colorTitles.png", plot = last_plot())
 
 # center the plot title
 # look up how to center the title on the internet by searching "ggplot center title"
@@ -162,4 +162,4 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
 ?last_plot
 
 # save the last plot using the ggsave function
-ggsave("pirates_plot_teeth_limbs_origin.png", plot = last_plot())
+ggsave("plots/pirates_plot_teeth_limbs_origin.png", plot = last_plot())

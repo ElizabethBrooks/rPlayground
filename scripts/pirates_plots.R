@@ -11,7 +11,7 @@
 library(ggplot2)
 
 # import the pirate data from the PiratesPirate.csv file
-pirates <- read.csv("PiratesPirate.csv")
+pirates <- read.csv("data/PiratesPirate.csv")
 
 # view the column names of the pirates data
 colnames(pirates)
@@ -138,4 +138,4 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
 ?last_plot
 
 # save the last plot using the ggsave function
-ggsave("pirates_plot_teeth_limbs_origin.png", plot = last_plot())
+ggsave("plots/pirates_plot_teeth_limbs_origin.png", plot = last_plot())

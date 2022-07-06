@@ -5,7 +5,7 @@
 #setwd("/Users/bamflappy/Documents/rPlayground")
 
 # import the pirate ship data from the PiratesShip.csv file
-ships <- read.csv("PiratesShip.csv")
+ships <- read.csv("data/PiratesShip.csv")
 
 # view the column names of the ship data
 colnames(ships)
@@ -18,13 +18,13 @@ head(ships)
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity)) +
   geom_point()
 
-ggsave("ship_plot_crew_sails.png", plot = last_plot())
+ggsave("plots/ship_plot_crew_sails.png", plot = last_plot())
 
 # color the scatter plot by MaidenYear
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
   geom_point()
 
-ggsave("ship_plot_crew_sails_year.png", plot = last_plot())
+ggsave("plots/ship_plot_crew_sails_year.png", plot = last_plot())
 
 # create a colorful plot by searching the internet for "ggplot wes anderson"
 # https://github.com/karthik/wesanderson
@@ -50,7 +50,7 @@ ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
   geom_point() +
   scale_color_gradientn(colors = wes_palette("Zissou1", type = "continuous"))
 
-ggsave("ship_plot_crew_sails_year_color.png", plot = last_plot())
+ggsave("plots/ship_plot_crew_sails_year_color.png", plot = last_plot())
 
 # add axis and plot titles
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
@@ -60,7 +60,7 @@ ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
        x ="Number of Sails", 
        y = "Crew Capacity")
 
-ggsave("ship_plot_crew_sails_year_title.png", plot = last_plot())
+ggsave("plots/ship_plot_crew_sails_year_title.png", plot = last_plot())
 
 # adjust the axis and plot title colors
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
@@ -75,7 +75,7 @@ ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
     axis.title.y = element_text(color="darkred", size=14, face="bold")
   )
 
-ggsave("ship_plot_crew_sails_year_colorTitle.png", plot = last_plot())
+ggsave("plots/ship_plot_crew_sails_year_colorTitle.png", plot = last_plot())
 
 # center the plot title
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
@@ -92,4 +92,4 @@ ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
   theme(plot.title = element_text(hjust = 0.5))
 
 # save the last plot using the ggsave function
-ggsave("ship_plot_crew_sails_year_centerTitle.png", plot = last_plot())
+ggsave("plots/ship_plot_crew_sails_year_centerTitle.png", plot = last_plot())

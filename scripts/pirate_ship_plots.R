@@ -5,7 +5,7 @@
 #setwd("/Users/bamflappy/Documents/rPlayground")
 
 # import the pirate ship data from the PiratesShip.csv file
-ships <- read.csv("PiratesShip.csv")
+ships <- read.csv("data/PiratesShip.csv")
 
 # view the column names of the ship data
 colnames(ships)
@@ -82,4 +82,4 @@ ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
   theme(plot.title = element_text(hjust = 0.5))
 
 # save the last plot using the ggsave function
-ggsave("ship_plot_crew_sails_year_centerTitle.png", plot = last_plot())
+ggsave("plots/ship_plot_crew_sails_year_centerTitle.png", plot = last_plot())
