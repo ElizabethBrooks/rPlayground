@@ -4,6 +4,12 @@
 # set the working directory
 #setwd("/Users/bamflappy/Repos/rPlayground")
 
+# if not already, install the ggplot2 package
+#install.packages("ggplot2")
+
+# load the ggplot2 library
+library(ggplot2)
+
 # import the pirate ship data from the PiratesShip.csv file
 ships <- read.csv("data/PiratesShip.csv")
 

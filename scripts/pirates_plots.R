@@ -1,8 +1,5 @@
 #### Fun R Plots with ggplot2 - Pirate Features
 
-# set the working directory
-#setwd("/Users/bamflappy/Repos/rPlayground")
-
 # if not already, install the ggplot2 package
 #install.packages("ggplot2")
 
