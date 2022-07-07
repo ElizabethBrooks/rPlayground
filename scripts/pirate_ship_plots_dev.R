@@ -19,6 +19,9 @@ colnames(ships)
 # view the first few lines of ship data
 head(ships)
 
+# view the ship data set in a new tab
+View(ships)
+
 ### One Dimension of Data with Vectors - CrewCapacity or Sails
 # create a plot for each dimension of CrewCapacity or Sails
 
@@ -26,13 +29,19 @@ head(ships)
 # https://ggplot2.tidyverse.org/reference/
 # https://datacarpentry.org/r-socialsci/04-ggplot2/index.html
 
-# start with plotting only the CrewCapacity dimension of the ship data
+# look at the CrewCapacity vector (dimension) of the ships data
+ships$CrewCapacity
+
+# plot only the CrewCapacity dimension of the ship data
 ggplot(data = pirates, aes(x = CrewCapacity)) +
   geom_bar()
 
 ggsave("plots/ship_plot_crew_bar.png", plot = last_plot())
 
-# next, plot only the Sails dimension of the ship data
+# look at the Sails vector (dimension) of the ships data
+ships$Sails
+
+# plot only the Sails dimension of the ship data
 ggplot(data = pirates, aes(x = Sails)) +
   geom_bar()
 

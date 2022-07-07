@@ -13,11 +13,14 @@ library(ggplot2)
 # import the pirate data from the PiratesPirate.csv file
 pirates <- read.csv("data/PiratesPirate.csv")
 
-# view the column names of the pirates data
+# look at the column names of the pirates data
 colnames(pirates)
 
-# view the first few lines of pirates data
+# look at the first few lines of pirates data
 head(pirates)
+
+# view the pirates data set in a new tab
+View(pirates)
 
 ### One Dimension of Data with Vectors - Teeth or Limbs
 # create a plot for each dimension of Teeth or Limbs
@@ -26,17 +29,23 @@ head(pirates)
 # https://ggplot2.tidyverse.org/reference/
 # https://datacarpentry.org/r-socialsci/04-ggplot2/index.html
 
-# start with plotting only the Limbs dimension of the pirates data
-ggplot(data = pirates, aes(x = Limbs)) +
-  geom_bar()
+# look at the Teeth vector (dimension) of pirates data
+pirates$Teeth
 
-ggsave("plots/pirates_plot_limbs_bar.png", plot = last_plot())
-
-# next, plot only the Teeth dimension of the pirates data
+# plot only the Teeth dimension of the pirates data
 ggplot(data = pirates, aes(x = Teeth)) +
   geom_bar()
 
 ggsave("plots/pirates_plot_teeth_bar.png", plot = last_plot())
+
+# look at the Limbs vector (dimension) of pirate data
+pirates$Limbs
+
+# plot only the Limbs dimension of the pirates data
+ggplot(data = pirates, aes(x = Limbs)) +
+  geom_bar()
+
+ggsave("plots/pirates_plot_limbs_bar.png", plot = last_plot())
 
 ### Two Dimensions of Data with Dataframes - Teeth & Limbs
 # explore the relationship between the numbers of Teeth and Limbs

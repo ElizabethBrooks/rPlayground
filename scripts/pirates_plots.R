@@ -9,21 +9,30 @@ library(ggplot2)
 # import the pirate data from the PiratesPirate.csv file
 pirates <- read.csv("data/PiratesPirate.csv")
 
-# view the column names of the pirates data
+# look at the column names of the pirates data
 colnames(pirates)
 
-# view the first few lines of pirates data
+# look at the first few lines of pirates data
 head(pirates)
+
+# view the pirates data set in a new tab
+View(pirates)
 
 ### One Dimension of Data with Vectors - Teeth or Limbs
 # create a plot for each dimension of Teeth or Limbs
 
-# start with plotting only the Limbs dimension of the pirates data
-ggplot(data = pirates, aes(x = Limbs)) +
+# look at the Teeth vector (dimension) of pirate data
+pirates$Teeth
+
+# plot only the Teeth dimension of the pirates data
+ggplot(data = pirates, aes(x = Teeth)) +
   geom_bar()
 
-# next, plot only the Teeth dimension of the pirates data
-ggplot(data = pirates, aes(x = Teeth)) +
+# look at the Limbs vector (dimension) of pirate data
+pirates$Limbs
+
+# plot only the Limbs dimension of the pirates data
+ggplot(data = pirates, aes(x = Limbs)) +
   geom_bar()
 
 ### Two Dimensions of Data with Dataframes - Teeth & Limbs

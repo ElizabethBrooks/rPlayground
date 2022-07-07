@@ -9,20 +9,29 @@ library(ggplot2)
 # import the pirate ship data from the PiratesShip.csv file
 ships <- read.csv("data/PiratesShip.csv")
 
-# view the column names of the ship data
+# look at the column names of the ship data
 colnames(ships)
 
-# view the first few lines of ship data
+# look at the first few lines of ship data
 head(ships)
+
+# view the ship data set in a new tab
+View(ships)
 
 ### One Dimension of Data with Vectors - CrewCapacity or Sails
 # create a plot for each dimension of CrewCapacity or Sails
 
-# start with plotting only the CrewCapacity dimension of the ship data
+# look at the CrewCapacity vector (dimension) of the ships data
+ships$CrewCapacity
+
+# plot only the CrewCapacity dimension of the ship data
 ggplot(data = pirates, aes(x = CrewCapacity)) +
   geom_bar()
 
-# next, plot only the Sails dimension of the ship data
+# look at the Sails vector (dimension) of the ships data
+ships$Sails
+
+# plot only the Sails dimension of the ship data
 ggplot(data = pirates, aes(x = Sails)) +
   geom_bar()
 
