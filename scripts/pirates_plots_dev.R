@@ -2,7 +2,7 @@
 # data.world/funsizemaddy/pirate2/workspace/file?filename=Pirates+%281%29.xlsx
 
 # set the working directory
-#setwd("/Users/bamflappy/Documents/rPlayground")
+#setwd("/Users/bamflappy/Repos/rPlayground")
 
 # if not already, install the ggplot2 package
 #install.packages("ggplot2")
@@ -19,11 +19,12 @@ colnames(pirates)
 # view the first few lines of pirates data
 head(pirates)
 
+### One Dimension of Data with Vectors - Teeth or Limbs
+# create a plot for each dimension of Teeth or Limbs
+
 # check out the basic ggplot function and geoms
 # https://ggplot2.tidyverse.org/reference/
 # https://datacarpentry.org/r-socialsci/04-ggplot2/index.html
-
-### One Dimension - Teeth or Limbs
 
 # start with plotting only the Limbs dimension of the pirates data
 ggplot(data = pirates, aes(x = Limbs)) +
@@ -37,7 +38,9 @@ ggplot(data = pirates, aes(x = Teeth)) +
 
 ggsave("plots/pirates_plot_teeth_bar.png", plot = last_plot())
 
-### Two Dimensions - Teeth & Limbs
+### Two Dimensions of Data with Dataframes - Teeth & Limbs
+# explore the relationship between the numbers of Teeth and Limbs
+# combine the two dimensions into one plot with geom_point
 
 # create a scatter plot comparing the two dimensions of Limbs vs Teeth
 ggplot(data = pirates, aes(x = Limbs, y = Teeth)) +
@@ -69,7 +72,10 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
 
 ggsave("plots/pirates_plot_teeth_limbs_boxFixed.png", plot = last_plot())
 
-# create a more detailed plot using colors to add another dimension
+### Three Dimensions of Data with Colors - Teeth & Limbs & Origin
+# explore the relationship between the numbers of Teeth and Limbs by Origin
+# add another dimension to your plots with color
+
 # look up color options on the internet by searching "ggplot boxplot color"
 # example 1 from r-graph-gallery.com/264-control-ggplot2-boxplot-colors.html
 ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
@@ -84,8 +90,6 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth, fill = Origin)) +
 
 ggsave("plots/pirates_plot_teeth_limbs_origin_colorBox2.png", plot = last_plot())
 
-### Three Dimensions - Teeth & Limbs & Origin
-
 # create a set of boxplots with one for each Origin of pirates
 # look up facet options on the internet by searching "ggplot boxplot facet"
 # www.sthda.com/english/wiki/ggplot2-facet-split-a-plot-into-a-matrix-of-panels
@@ -93,7 +97,18 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
   geom_boxplot(color="darkgreen", fill="orange", alpha=0.2) +
   facet_wrap(~ Origin)
 
+### Saving Plots - ggsave
+
+# check out the info for the ggsave function
+?ggsave
+
+# check out the info for the last_plot function
+?last_plot
+
+# save the last plot using the ggsave function
 ggsave("plots/pirates_plot_teeth_limbs_origin_facetWrap.png", plot = last_plot())
+
+### Bonus Exercises - Adjusting Plot Appearance
 
 # change the appearance of the individual plot titles
 # www.sthda.com/english/wiki/ggplot2-facet-split-a-plot-into-a-matrix-of-panels
@@ -154,12 +169,6 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
     axis.title.y = element_text(color="purple", size=14, face="bold")
   ) +
   theme(plot.title = element_text(hjust = 0.5))
-
-# check out the info for the ggsave function
-?ggsave
-
-# check out the info for the last_plot function
-?last_plot
 
 # save the last plot using the ggsave function
 ggsave("plots/pirates_plot_teeth_limbs_origin.png", plot = last_plot())

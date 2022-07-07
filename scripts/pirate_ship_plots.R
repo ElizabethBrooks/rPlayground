@@ -1,8 +1,7 @@
 #### Colorful R Plots with Wes Anderson Palettes & ggplot2 - Pirate Ship Features
-# data.world/funsizemaddy/pirate2/workspace/file?filename=Pirates+%281%29.xlsx
 
 # set the working directory
-#setwd("/Users/bamflappy/Documents/rPlayground")
+#setwd("/Users/bamflappy/Repos/rPlayground")
 
 # import the pirate ship data from the PiratesShip.csv file
 ships <- read.csv("data/PiratesShip.csv")
@@ -13,18 +12,33 @@ colnames(ships)
 # view the first few lines of ship data
 head(ships)
 
-# explore the relationship between Sails and CrewCapacity
+### One Dimension of Data with Vectors - CrewCapacity or Sails
+# create a plot for each dimension of CrewCapacity or Sails
+
+# start with plotting only the CrewCapacity dimension of the ship data
+ggplot(data = pirates, aes(x = CrewCapacity)) +
+  geom_bar()
+
+# next, plot only the Sails dimension of the ship data
+ggplot(data = pirates, aes(x = Sails)) +
+  geom_bar()
+
+### Two Dimensions of Data with Dataframes - CrewCapacity & Sails
+# combine the two dimensions into one plot with geom_point
+
 # first, create a scatter plot
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity)) +
   geom_point()
+
+### Three Dimensions of Data with Colors - CrewCapacity & Sails & MaidenYear
+# add a third dimension to your plot with color
 
 # color the scatter plot by MaidenYear
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
   geom_point()
 
-# create a colorful plot by searching the internet for "ggplot wes anderson"
-# https://github.com/karthik/wesanderson
-# https://rforpoliticalscience.com/2020/07/26/make-wes-anderson-themed-graphs-with-wesanderson-package-in-r/
+### Fun Colors - Wes Anderson Palette
+# create a fun colorful plot using the wesanderson color palette
 
 # if not already, install the wesanderson package
 #install.packages("wesanderson")
@@ -45,6 +59,19 @@ names(wes_palettes)
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
   geom_point() +
   scale_color_gradientn(colors = wes_palette("Zissou1", type = "continuous"))
+
+### Saving Plots - ggsave
+
+# check out the info for the ggsave function
+?ggsave
+
+# check out the info for the last_plot function
+?last_plot
+
+# save the last plot using the ggsave function
+ggsave("plots/ship_plot_crew_sails_year_color.png", plot = last_plot())
+
+### Bonus Exercises - Adjusting Plot Appearance
 
 # add axis and plot titles
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
