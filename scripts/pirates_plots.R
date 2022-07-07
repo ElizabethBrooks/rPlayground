@@ -1,8 +1,5 @@
 #### Fun R Plots with ggplot2 - Pirate Features
 
-# if not already, install the ggplot2 package
-#install.packages("ggplot2")
-
 # load the ggplot2 library
 library(ggplot2)
 

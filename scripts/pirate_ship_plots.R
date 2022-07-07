@@ -1,8 +1,5 @@
 #### Colorful R Plots with Wes Anderson Palettes & ggplot2 - Pirate Ship Features
 
-# if not already, install the ggplot2 package
-#install.packages("ggplot2")
-
 # load the ggplot2 library
 library(ggplot2)
 
@@ -51,9 +48,6 @@ ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
 
 ### Fun Colors - Wes Anderson Palette
 # create a fun colorful plot using the wesanderson color palette
-
-# if not already, install the wesanderson package
-#install.packages("wesanderson")
 
 # load the wesanderson package
 library(wesanderson)
