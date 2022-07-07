@@ -1,10 +1,7 @@
 #### Colorful R Plots with Wes Anderson Palettes & ggplot2 - Pirate Ship Features
 
-# load the ggplot2 library
-library(ggplot2)
-
 # import the pirate ship data from the PiratesShip.csv file
-ships <- read.csv("data/PiratesShip.csv")
+ships <- read.csv("PiratesShip.csv")
 
 # look at the column names of the ship data
 colnames(ships)
@@ -18,18 +15,21 @@ View(ships)
 ### One Dimension of Data with Vectors - CrewCapacity or Sails
 # create a plot for each dimension of CrewCapacity or Sails
 
+# load the ggplot2 library
+library(ggplot2)
+
 # look at the CrewCapacity vector (dimension) of the ships data
 ships$CrewCapacity
 
 # plot only the CrewCapacity dimension of the ship data
-ggplot(data = pirates, aes(x = CrewCapacity)) +
+ggplot(data = ships, aes(x = CrewCapacity)) +
   geom_bar()
 
 # look at the Sails vector (dimension) of the ships data
 ships$Sails
 
 # plot only the Sails dimension of the ship data
-ggplot(data = pirates, aes(x = Sails)) +
+ggplot(data = ships, aes(x = Sails)) +
   geom_bar()
 
 ### Two Dimensions of Data with Dataframes - CrewCapacity & Sails
@@ -75,7 +75,7 @@ ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
 ?last_plot
 
 # save the last plot using the ggsave function
-ggsave("plots/ship_plot_crew_sails_year_color.png", plot = last_plot())
+ggsave("ship_plot_crew_sails_year_color.png", plot = last_plot())
 
 ### Bonus Exercises - Adjusting Plot Appearance
 
@@ -115,4 +115,4 @@ ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
   theme(plot.title = element_text(hjust = 0.5))
 
 # save the last plot using the ggsave function
-ggsave("plots/ship_plot_crew_sails_year_centerTitle.png", plot = last_plot())
+ggsave("ship_plot_crew_sails_year_centerTitle.png", plot = last_plot())

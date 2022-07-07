@@ -1,10 +1,7 @@
 #### Fun R Plots with ggplot2 - Pirate Features
 
-# load the ggplot2 library
-library(ggplot2)
-
 # import the pirate data from the PiratesPirate.csv file
-pirates <- read.csv("data/PiratesPirate.csv")
+pirates <- read.csv("PiratesPirate.csv")
 
 # look at the column names of the pirates data
 colnames(pirates)
@@ -17,6 +14,9 @@ View(pirates)
 
 ### One Dimension of Data with Vectors - Teeth or Limbs
 # create a plot for each dimension of Teeth or Limbs
+
+# load the ggplot2 library
+library(ggplot2)
 
 # look at the Teeth vector (dimension) of pirate data
 pirates$Teeth
@@ -85,7 +85,7 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
 ?last_plot
 
 # save the last plot using the ggsave function
-ggsave("plots/pirates_plot_teeth_limbs_origin_facetWrap.png", plot = last_plot())
+ggsave("pirates_plot_teeth_limbs_origin_facetWrap.png", plot = last_plot())
 
 ### Bonus Exercises - Adjusting Plot Appearance
 
@@ -138,4 +138,4 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
   theme(plot.title = element_text(hjust = 0.5))
 
 # save the last plot using the ggsave function
-ggsave("plots/pirates_plot_teeth_limbs_origin.png", plot = last_plot())
+ggsave("pirates_plot_teeth_limbs_origin.png", plot = last_plot())
