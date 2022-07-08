@@ -76,6 +76,55 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
   geom_boxplot(color="darkgreen", fill="orange", alpha=0.2) +
   facet_wrap(~ Origin)
 
+### Bonus Exercises - Adjusting Plot Appearance
+
+# change the appearance of the individual plot titles
+ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
+  geom_boxplot(color = "darkgreen", fill = "orange", alpha = 0.2) +
+  facet_wrap(~ Origin) +
+  theme(strip.background = element_rect(colour = "black", fill = "white", 
+                                        size = 1.5, linetype = "solid"))
+
+# change the axis titles and add a plot title
+ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
+  geom_boxplot(color = "darkgreen", fill = "orange", alpha = 0.2) +
+  facet_wrap(~ Origin) +
+  theme(strip.background = element_rect(colour = "black", fill = "white", 
+                                        size = 1.5, linetype = "solid")) +
+  labs(title = "Comparison of Pirate Teeth and Limb Numbers by Origin", 
+       x ="Number of Limbs", 
+       y = "Number of Teeth")
+
+# adjust the colors of the axis and plot titles
+ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
+  geom_boxplot(color = "darkgreen", fill = "orange", alpha = 0.2) +
+  facet_wrap(~ Origin) +
+  theme(strip.background = element_rect(colour = "black", fill = "white", 
+                                        size = 1.5, linetype = "solid")) +
+  labs(title = "Comparison of Pirate Teeth and Limb Numbers by Origin", 
+       x ="Number of Limbs", 
+       y = "Number of Teeth") +
+  theme(
+    plot.title = element_text(color = "red", size = 14, face = "bold.italic"),
+    axis.title.x = element_text(color = "blue", size = 14, face = "bold"),
+    axis.title.y = element_text(color = "purple", size = 14, face = "bold")
+  )
+
+# center the plot title
+ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
+  geom_boxplot(color = "darkgreen", fill = "orange", alpha = 0.2) +
+  facet_wrap(~ Origin) +
+  theme(strip.background = element_rect(colour = "black", fill = "white", 
+                                        size = 1.5, linetype = "solid")) +
+  labs(title = "Comparison of Pirate Teeth and Limb Numbers by Origin", 
+       x ="Number of Limbs", 
+       y = "Number of Teeth") +
+  theme(
+    plot.title = element_text(color = "red", size = 14, face = "bold.italic", hjust = 0.5),
+    axis.title.x = element_text(colo  = "blue", size = 14, face = "bold"),
+    axis.title.y = element_text(color = "purple", size = 14, face = "bold")
+  )
+
 ### Saving Plots - ggsave
 
 # check out the info for the ggsave function
@@ -83,59 +132,6 @@ ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
 
 # check out the info for the last_plot function
 ?last_plot
-
-# save the last plot using the ggsave function
-ggsave("pirates_plot_teeth_limbs_origin_facetWrap.png", plot = last_plot())
-
-### Bonus Exercises - Adjusting Plot Appearance
-
-# change the appearance of the individual plot titles
-ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
-  geom_boxplot(color="darkgreen", fill="orange", alpha=0.2) +
-  facet_wrap(~ Origin) +
-  theme(strip.background = element_rect(colour="black", fill="white", 
-                                        size=1.5, linetype="solid"))
-
-# change the axis titles and add a plot title
-ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
-  geom_boxplot(color="darkgreen", fill="orange", alpha=0.2) +
-  facet_wrap(~ Origin) +
-  theme(strip.background = element_rect(colour="black", fill="white", 
-                                        size=1.5, linetype="solid")) +
-  labs(title="Comparison of Pirate Teeth and Limb Numbers by Origin", 
-       x ="Number of Limbs", 
-       y = "Number of Teeth")
-
-# adjust the colors of the axis and plot titles
-ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
-  geom_boxplot(color="darkgreen", fill="orange", alpha=0.2) +
-  facet_wrap(~ Origin) +
-  theme(strip.background = element_rect(colour="black", fill="white", 
-                                        size=1.5, linetype="solid")) +
-  labs(title="Comparison of Pirate Teeth and Limb Numbers by Origin", 
-       x ="Number of Limbs", 
-       y = "Number of Teeth") +
-  theme(
-    plot.title = element_text(color="red", size=14, face="bold.italic"),
-    axis.title.x = element_text(color="blue", size=14, face="bold"),
-    axis.title.y = element_text(color="purple", size=14, face="bold")
-  )
-
-# center the plot title
-ggplot(data = pirates, aes(x = factor(Limbs), y = Teeth)) +
-  geom_boxplot(color="darkgreen", fill="orange", alpha=0.2) +
-  facet_wrap(~ Origin) +
-  theme(strip.background = element_rect(colour="black", fill="white", 
-                                        size=1.5, linetype="solid")) +
-  labs(title="Comparison of Pirate Teeth and Limb Numbers by Origin", 
-       x ="Number of Limbs", 
-       y = "Number of Teeth") +
-  theme(
-    plot.title = element_text(color="red", size=14, face="bold.italic"),
-    axis.title.x = element_text(color="blue", size=14, face="bold"),
-    axis.title.y = element_text(color="purple", size=14, face="bold")
-  ) +
-  theme(plot.title = element_text(hjust = 0.5))
 
 # save the last plot using the ggsave function
 ggsave("pirates_plot_teeth_limbs_origin.png", plot = last_plot())

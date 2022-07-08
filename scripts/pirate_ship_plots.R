@@ -66,6 +66,45 @@ ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
   geom_point() +
   scale_color_gradientn(colors = wes_palette("Zissou1", type = "continuous"))
 
+### Bonus Exercises - Adjusting Plot Appearance
+
+# add axis and plot titles
+ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
+  geom_point() +
+  scale_color_gradientn(colors = wes_palette("Zissou1", type = "continuous")) +
+  labs(title = "Pirate Ship Crew Capacity by Sails", 
+       x ="Number of Sails", 
+       y = "Crew Capacity")
+
+# retrieve the vector of colors associated with Zissou1
+(zis_colors <- wes_palette("Zissou1", type = "discrete"))
+
+# adjust the axis and plot title colors
+ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
+  geom_point() +
+  scale_color_gradientn(colors = wes_palette("Zissou1", type = "continuous")) +
+  labs(title = "Pirate Ship Crew Capacity by Sails", 
+       x ="Number of Sails", 
+       y = "Crew Capacity") +
+  theme(
+    plot.title = element_text(color = zis_colors[1], size = 14, face = "bold.italic"),
+    axis.title.x = element_text(color = zis_colors[4], size = 14, face = "bold"),
+    axis.title.y = element_text(color = zis_colors[5], size = 14, face = "bold")
+  )
+
+# center the plot title
+ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
+  geom_point() +
+  scale_color_gradientn(colors = wes_palette("Zissou1", type = "continuous")) +
+  labs(title = "Pirate Ship Crew Capacity by Sails", 
+       x ="Number of Sails", 
+       y = "Crew Capacity") +
+  theme(
+    plot.title = element_text(color = zis_colors[1], size = 14, face = "bold.italic", hjust = 0.5),
+    axis.title.x = element_text(color = zis_colors[4], size = 14, face = "bold"),
+    axis.title.y = element_text(color = zis_colors[5], size = 14, face = "bold")
+  )
+
 ### Saving Plots - ggsave
 
 # check out the info for the ggsave function
@@ -75,44 +114,4 @@ ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
 ?last_plot
 
 # save the last plot using the ggsave function
-ggsave("ship_plot_crew_sails_year_color.png", plot = last_plot())
-
-### Bonus Exercises - Adjusting Plot Appearance
-
-# add axis and plot titles
-ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
-  geom_point() +
-  scale_color_gradientn(colors = wes_palette("Zissou1", type = "continuous")) +
-  labs(title="Pirate Ship Crew Capacity by Sails", 
-       x ="Number of Sails", 
-       y = "Crew Capacity")
-
-# adjust the axis and plot title colors
-ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
-  geom_point() +
-  scale_color_gradientn(colors = wes_palette("Zissou1", type = "continuous")) +
-  labs(title="Pirate Ship Crew Capacity by Sails", 
-       x ="Number of Sails", 
-       y = "Crew Capacity") +
-  theme(
-    plot.title = element_text(color="darkgreen", size=14, face="bold.italic"),
-    axis.title.x = element_text(color="darkblue", size=14, face="bold"),
-    axis.title.y = element_text(color="darkred", size=14, face="bold")
-  )
-
-# center the plot title
-ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
-  geom_point() +
-  scale_color_gradientn(colors = wes_palette("Zissou1", type = "continuous")) +
-  labs(title="Pirate Ship Crew Capacity by Sails", 
-       x ="Number of Sails", 
-       y = "Crew Capacity") +
-  theme(
-    plot.title = element_text(color="darkgreen", size=14, face="bold.italic"),
-    axis.title.x = element_text(color="darkblue", size=14, face="bold"),
-    axis.title.y = element_text(color="darkred", size=14, face="bold")
-  ) +
-  theme(plot.title = element_text(hjust = 0.5))
-
-# save the last plot using the ggsave function
-ggsave("ship_plot_crew_sails_year_centerTitle.png", plot = last_plot())
+ggsave("plots/bonus/ship_plot_crew_sails_year_centerTitle.png", plot = last_plot())
