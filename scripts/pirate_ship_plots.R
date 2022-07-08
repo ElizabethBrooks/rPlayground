@@ -32,6 +32,13 @@ ships$Sails
 ggplot(data = ships, aes(x = Sails)) +
   geom_bar()
 
+# look at the MaidenYear vector (dimension) of the ships data
+ships$MaidenYear
+
+# plot only the MaidenYear dimension of the ship data
+ggplot(data = ships, aes(x = MaidenYear)) +
+  geom_bar()
+
 ### Two Dimensions of Data with Dataframes - CrewCapacity & Sails
 # combine the two dimensions into one plot with geom_point
 
