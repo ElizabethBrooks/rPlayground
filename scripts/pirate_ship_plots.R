@@ -72,7 +72,7 @@ ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
   geom_point() +
   scale_color_gradientn(colors = wes_palette("Zissou1", type = "continuous")) +
-  labs(title = "Pirate Ship Crew Capacity by Sails", 
+  labs(title = "Pirate Ship Crew Capacity by Sails and Maiden Year", 
        x ="Number of Sails", 
        y = "Crew Capacity")
 
@@ -83,7 +83,7 @@ ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
   geom_point() +
   scale_color_gradientn(colors = wes_palette("Zissou1", type = "continuous")) +
-  labs(title = "Pirate Ship Crew Capacity by Sails", 
+  labs(title = "Pirate Ship Crew Capacity by Sails and Maiden Year", 
        x ="Number of Sails", 
        y = "Crew Capacity") +
   theme(
@@ -96,7 +96,7 @@ ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
   geom_point() +
   scale_color_gradientn(colors = wes_palette("Zissou1", type = "continuous")) +
-  labs(title = "Pirate Ship Crew Capacity by Sails", 
+  labs(title = "Pirate Ship Crew Capacity by Sails and Maiden Year", 
        x ="Number of Sails", 
        y = "Crew Capacity") +
   theme(
