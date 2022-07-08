@@ -65,7 +65,7 @@ ggsave("plots/dev/ship_plot_crew_sails.png", plot = last_plot())
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
   geom_point()
 
-ggsave("plots/dev/ship_plot_crew_sails_year.png", plot = last_plot())
+ggsave("plots/dev/ship_plot_crew_sails_year_basic.png", plot = last_plot())
 
 ### Fun Colors - Wes Anderson Palette
 # create a fun colorful plot by searching the internet for "ggplot wes anderson"
@@ -91,6 +91,8 @@ names(wes_palettes)
 ggplot(data = ships, aes(x = Sails, y = CrewCapacity, color = MaidenYear)) +
   geom_point() +
   scale_color_gradientn(colors = wes_palette("Zissou1", type = "continuous"))
+
+ggsave("plots/dev/ship_plot_crew_sails_year.png", plot = last_plot())
 
 ### Bonus Exercises - Adjusting Plot Appearance
 
